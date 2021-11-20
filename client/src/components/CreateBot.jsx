@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import styles from "../styles/CreateBot.module.css"
 
 export default function CreateBot () {
     const [lat, setLat] = useState(0);
@@ -35,14 +36,22 @@ export default function CreateBot () {
         bots()
     }
     return ( 
+        <>
         <div>
-            <label htmlFor="">Enter a latitud coordinate</label>
-            <input onChange={handleChangeLat} value={lat} type="number" placeholder='Ex: 38.8951'/>
-            <label htmlFor="">Enter a longitude coordinate</label>
-            <input onChange={handleChangeLon} value={lon} type="number" placeholder='Ex: -77.0364'/>
-            <label htmlFor="">Place a zone</label>
-            <input onChange={handleChangeZone} value={zone} type="text" placeholder='Ex: 742 Evergreen Terrace'/>
-            <button onClick={handleClick}>Create a Kiwi</button>
+            <h3>Create a KiwiBot</h3>
+            <h3>Create a Delivery</h3>
+            <div className={styles.form}>
+                <label htmlFor="">Enter a latitud coordinate:</label>
+                <input className={styles.input} onChange={handleChangeLat} value={lat} type="number" placeholder='Ex: 38.8951'/>
+                <br />
+                <label htmlFor="">Enter a longitude coordinate:</label>
+                <input className={styles.input} onChange={handleChangeLon} value={lon} type="number" placeholder='Ex: -77.0364'/>
+                <br />
+                <label htmlFor="">Enter a zone:</label>
+                <input className={styles.input} onChange={handleChangeZone} value={zone} type="text" placeholder='Ex: 742 Evergreen Terrace'/>
+                <button className={styles.btn} onClick={handleClick}>Create a Kiwi</button>
+            </div>
         </div>
+        </>
      );
 }

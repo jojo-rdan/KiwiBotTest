@@ -1,8 +1,10 @@
 const express = require('express');
-const {Deliveries, Bots} = require('./fireBase')
 const app = express();
 const { v4: uuidv4 } = require('uuid');
 const cors = require('cors');
+
+//Me traigo mis colecciones de firestore para poder trabajar sobre ellas.
+const {Deliveries, Bots} = require('./fireBase')
 
 //Acá seteo los headers
 app.use(express.json());
@@ -12,10 +14,10 @@ app.use(express.urlencoded({extended : true, limit: '50mb'}));
 //Cuando tengo un poco más de tiempo modularizo las rutas en la carpeta src
 //en donde divido las rutas como componentes funcionales y las llamo sobre un index
 //con esto es más fácil localizar un error en cierta porción de código.
-//también utilizo varianbles de ambiente (dotenv) para guardar información sensible.
+//también suelo utilizar variables de ambiente (dotenv) para guardar información sensible.
 //cabe destacar que las rutas tienen un control de errores que blindan el back para mayor seguridad.
 
-//Ruta para crear Deliveries
+//Ruta para crear Deliveries.
 app.post('/delivery', async (req, res) => {
         let {
             pickup: {
@@ -53,7 +55,7 @@ app.post('/delivery', async (req, res) => {
         }
 })
 
-//Ruta para crear bots
+//Ruta para crear bots.
 app.post('/bots', async(req, res) => {
     let {
         location: {
@@ -82,7 +84,7 @@ app.post('/bots', async(req, res) => {
         }
 })
 
-//Ruta para obtener todos los deliveries en caso de que no pases un id por params
+//Ruta para obtener todos los deliveries en caso de que no pases un id por params.
 app.get('/delivery', async(req, res) => {
         try{
             const delivery = await Deliveries.get();
@@ -108,7 +110,7 @@ app.get('/delivery', async(req, res) => {
         }
 })
 
-//Ruta para obtener un delivery específico
+//Ruta para obtener un delivery específico.
 app.get('/delivery/:id', async(req, res) => {
         const {id} = req.params;
         try{

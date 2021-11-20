@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import styles from '../styles/CreateBot.module.css'
 
 export default function BotAssign ({id, list, state, cleaner}) {
     const assignBot = async()=> {
@@ -17,7 +17,7 @@ export default function BotAssign ({id, list, state, cleaner}) {
     }
     return ( 
         <div>
-            <button onClick={handleClick} disabled={state === 'delivered'}>{state === 'pending' ? 'Assing a Kiwi' : 'Update Status'}</button>
+            <button className={styles.btn} onClick={handleClick} disabled={state === 'delivered'}>{state === 'pending' ? 'Assing a Kiwi' : 'Update Status'}</button>
         </div>
      );
 }

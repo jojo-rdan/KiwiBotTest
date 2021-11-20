@@ -1,0 +1,8 @@
+.ulStl{
+    list-style: none;
+}
+.warning{
+    border: none;
+    color: black;
+    background-color: #ca2929;
+}

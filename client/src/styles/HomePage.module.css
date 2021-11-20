@@ -1,0 +1,8 @@
+.letters{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ebe7a6;
+}
+.letters h2{
+    margin-top: 31px;
+}

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import styles from "../styles/CreateDelivery.module.css"
 
 export default function CreateDelivery ({list}) {
     const [latPick, setLatPick] = useState(0);
@@ -48,18 +49,23 @@ export default function CreateDelivery ({list}) {
         delivery();
     }
     return ( 
-        <div>
-            <label htmlFor="">Enter a latitud pickup coordinate</label>
-            <input onChange={handleChangeLatPick} value={latPick} type="number" placeholder='Ex: 38.8951'/>
-            <label htmlFor="">Enter a longitude pickup coordinate</label>
-            <input onChange={handleChangeLonPick} value={lonPick} type="number" placeholder='Ex: -77.0364'/>
-            <label htmlFor="">Enter a latitud dropoff coordinate</label>
-            <input onChange={handleChangeLat} value={lat} type="number" placeholder='Ex: 38.8951'/>
-            <label htmlFor="">Enter a longitude dropoff coordinate</label>
-            <input onChange={handleChangeLon} value={lon} type="number" placeholder='Ex: -77.0364'/>
-            <label htmlFor="">Place a zone</label>
-            <input onChange={handleChangeZone} value={zone} type="text" placeholder='Ex: 742 Evergreen Terrace'/>
-            <button onClick={handleClick}>Create a Delivery</button>
+        <div className={styles.form}>
+            <label htmlFor="">Enter a latitud pickup coordinate:</label>
+            <input className={styles.input} onChange={handleChangeLatPick} value={latPick} type="number" placeholder='Ex: 38.8951'/>
+            <br />
+            <label htmlFor="">Enter a longitude pickup coordinate:</label>
+            <input className={styles.input} onChange={handleChangeLonPick} value={lonPick} type="number" placeholder='Ex: -77.0364'/>
+            <br />
+            <label htmlFor="">Enter a latitud dropoff coordinate:</label>
+            <input className={styles.input} onChange={handleChangeLat} value={lat} type="number" placeholder='Ex: 38.8951'/>
+            <br />
+            <label htmlFor="">Enter a longitude dropoff coordinate:</label>
+            <br />
+            <input className={styles.input} onChange={handleChangeLon} value={lon} type="number" placeholder='Ex: -77.0364'/>
+            <br />
+            <label htmlFor="">Place a zone:</label>
+            <input className={styles.input} onChange={handleChangeZone} value={zone} type="text" placeholder='Ex: 742 Evergreen Terrace'/>
+            <button className={styles.btn} onClick={handleClick}>Create a Delivery</button>
         </div>
      );
 }

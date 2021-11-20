@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import BotAssign from './BotAssign';
 import CreateDelivery from './CreateDelivery';
+import styles from '../styles/DeliveryList.module.css';
 
 export default function DeliveryList () {
     const [lists, setList] = useState([]);
@@ -48,7 +49,7 @@ export default function DeliveryList () {
     return ( 
         <div>
             <CreateDelivery list={list}/>
-            <h1>Hola mundo</h1>
+            <h2>Orders</h2>
             <button onClick={handleClick}>Order by date</button>
             <label htmlFor="state">Filter by...</label>
             <select onChange={handleChange} name="" id="state">
@@ -58,7 +59,7 @@ export default function DeliveryList () {
                 <option value="in_transit">In Transit</option>
                 <option value="delivered">Delivered</option>
             </select>
-            <ul>
+            <ul className={styles.ulStl}>
                 {
                     lists?.filter(e => {
                         if(!filter){
@@ -71,7 +72,7 @@ export default function DeliveryList () {
                         <>
                         <li> Date: {e.creation_date} - Id: {e.id} State: {e.state}</li>
                         <BotAssign cleaner={cleanDelay} state={e.state} list={list} id={e.id}/>
-                        {delayed[e.id] && <p>Delayed Delivery</p>}
+                        {delayed[e.id] && <p className={styles.warning}>Delayed Delivery</p>}
                         </>
                     ))
                 }
