@@ -10,7 +10,7 @@ export default function DeliveryList () {
     const [delayed, setDelayed] = useState({});
     const list = async()=> {
         try{
-            let list  = await axios.get('http://localhost:3000/delivery');
+            let list  = await axios.get('http://localhost:3001/delivery');
             let dataList = list.data;
             setList(dataList);
         } catch(err){
@@ -49,34 +49,36 @@ export default function DeliveryList () {
     return ( 
         <div>
             <CreateDelivery list={list}/>
-            <h2>Orders</h2>
-            <button onClick={handleClick}>Order by date</button>
-            <label htmlFor="state">Filter by...</label>
-            <select onChange={handleChange} name="" id="state">
-                <option value="" selected></option>
-                <option value="pending">Pending</option>
-                <option value="assigned">Assigned</option>
-                <option value="in_transit">In Transit</option>
-                <option value="delivered">Delivered</option>
-            </select>
-            <ul className={styles.ulStl}>
-                {
-                    lists?.filter(e => {
-                        if(!filter){
-                            return e;
-                        }
-                        else{
-                            return e.state === filter;
-                        }
-                    }).map((e) => (
-                        <>
-                        <li> Date: {e.creation_date} - Id: {e.id} State: {e.state}</li>
-                        <BotAssign cleaner={cleanDelay} state={e.state} list={list} id={e.id}/>
-                        {delayed[e.id] && <p className={styles.warning}>Delayed Delivery</p>}
-                        </>
-                    ))
-                }
-            </ul>
+            <div className={styles.container}>
+                <h2 className={styles.letters}>Orders</h2>
+                <button className={styles.btn} onClick={handleClick}>Order by date</button>
+                <label htmlFor="state"> Filter by...</label>
+                <select onChange={handleChange} name="" id="state">
+                    <option value="" selected>All</option>
+                    <option value="pending">Pending</option>
+                    <option value="assigned">Assigned</option>
+                    <option value="in_transit">In Transit</option>
+                    <option value="delivered">Delivered</option>
+                </select>
+                <ul className={styles.ulStl}>
+                    {
+                        lists?.filter(e => {
+                            if(!filter){
+                                return e;
+                            }
+                            else{
+                                return e.state === filter;
+                            }
+                        }).map((e) => (
+                            <>
+                            <li>Date: {e.creation_date} - Id: {e.id} - State:<b>{e.state}</b></li>
+                            <BotAssign cleaner={cleanDelay} state={e.state} list={list} id={e.id}/>
+                            {delayed[e.id] && <p className={styles.warning}>Delayed Delivery</p>}
+                            </>
+                        ))
+                    }
+                </ul>
+            </div>
         </div>
      );
 }

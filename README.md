@@ -16,11 +16,17 @@
       - Axios
         
   - Functionality:
-      - The user will be able to keep track of the various deliveries, see their creation schedule, change their status and create new deliveries.
+      - The user will be able to keep track of the various deliveries, see their creation date, change their status and create new deliveries.
       - The user will also have a fleet of KiwiBots to be able to assign them to the deliveries that you have pending shipments and will also be able to create new Kiwibots if necessary.
       - There is also a boton that filters deliveries by creation date, ascending or descending.
       - There is also an option to filter deliveries by the status of the shipment.
       - In case of orders that have been in a "pending" state for more than 5 minutes, a warning will be displayed.
+      - If the shipment has already been made, the update status button will be deactivated, because the order has already been shipped.
+      - 
+  - Things to improve(having more time):
+      - Implement unit tests on the back and front.
+      - A route to get the information of all kiwibots in the database (however, you are able to watch it from the DB of firebase, just in case).
+      - Rewrite all this project with TypeScript, to improve myself and the code.
 
  ## How to start the project:
  

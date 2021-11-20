@@ -10,7 +10,7 @@ export default function CreateDelivery ({list}) {
     const [zone, setZone] = useState('');
     const delivery = async() => {
         try{
-            await axios.post('http://localhost:3000/delivery', {
+            await axios.post('http://localhost:3001/delivery', {
             pickup: {
                 pickup_lat: latPick,
                 pickup_lon: lonPick

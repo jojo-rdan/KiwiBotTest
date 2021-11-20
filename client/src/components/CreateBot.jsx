@@ -8,7 +8,7 @@ export default function CreateBot () {
     const [zone, setZone] = useState('');
     const bots = async() => {
         try{
-            await axios.post('http://localhost:3000/bots', {
+            await axios.post('http://localhost:3001/bots', {
             location: {
                 dropoff_lat: lat,
                 dropoff_lon: lon

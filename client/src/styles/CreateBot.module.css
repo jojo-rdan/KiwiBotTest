@@ -2,10 +2,11 @@
     background-color: #ffdaa9;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 215px;
+    height: 230px;
     padding: 20px;
     width: 300px;
-    margin: 20px;
+    margin-top: 10px;
+    margin-left: 190px;
 }
 .input {
     background-color: #ebe7a6;
@@ -31,5 +32,5 @@
 }
 h3{
     display: inline-block;
-    margin: 10px 10% 0 25%;
+    margin: 10px 10% 0 20%;
 }

@@ -6,3 +6,20 @@
     color: black;
     background-color: #ca2929;
 }
+.btn {
+    cursor: pointer;
+    border: none;
+    color: black;
+    background-color: #cac229;
+    margin-left: 215px;
+}
+.btn:hover{
+    background-color: #908c37;
+}
+.letters{
+    margin-left: 300px;
+    margin-top: 130px;
+}
+.container{
+    margin-top: 20px;
+}
