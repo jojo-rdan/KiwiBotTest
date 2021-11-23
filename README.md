@@ -27,6 +27,7 @@
       - Implement unit tests on the back and front.
       - A route to get the information of all kiwibots in the database (however, you are able to watch it from the DB of firebase, just in case).
       - Rewrite all this project with TypeScript, to improve myself and the code.
+      - Make it responsive.
 
  ## Test Checklist:
 
